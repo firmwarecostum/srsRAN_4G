@@ -263,7 +263,7 @@ set(BOOST_REQUIRED_COMPONENTS
   program_options
 )
 if(UHD_FOUND) # Ubuntu 18.04 requires component 'system' to link UHD
-  list(APPEND BOOST_REQUIRED_COMPONENTS "system")
+  list(APPEND BOOST_REQUIRED_COMPONENTS)
 endif(UHD_FOUND)
 if(UNIX AND EXISTS "/usr/lib64")
   list(APPEND BOOST_LIBRARYDIR "/usr/lib64") #fedora 64-bit fix
