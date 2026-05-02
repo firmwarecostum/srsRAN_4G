@@ -27,6 +27,7 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <sys/socket.h>
+#include <sys/time.h>
 #include <unistd.h>
 
 #include "srsran/phy/io/netsource.h"
