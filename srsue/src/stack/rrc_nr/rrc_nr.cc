@@ -27,6 +27,8 @@
 #include "srsran/interfaces/ue_rlc_interfaces.h"
 #include "srsue/hdr/stack/rrc_nr/rrc_nr_procedures.h"
 #include "srsue/hdr/stack/upper/usim.h"
+#include <sys/types.h>
+#include <stdint.h>
 
 using namespace asn1::rrc_nr;
 using namespace asn1;
