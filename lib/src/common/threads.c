@@ -21,6 +21,7 @@
 
 #include <errno.h>
 #include <pthread.h>
+#include <sched.h> // Needed for cpu_set_t and CPU_SET macros
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -141,10 +142,15 @@ bool threads_new_rt_cpu(pthread_t* thread, void* (*start_routine)(void*), void* 
       CPU_ZERO(&cpuset);
       CPU_SET((size_t)cpu, &cpuset);
     }
-
+#ifdef __GLIBC__
     if (pthread_attr_setaffinity_np(&attr, sizeof(cpu_set_t), &cpuset)) {
       perror("pthread_attr_setaffinity_np");
     }
+#else
+    if (pthread_setaffinity_np(thread, sizeof(cpu_set_t), &cpuset)) {
+      perror("pthread_setaffinity_np");
+    }
+#endif
   }
 
 // TSAN seems to have issues with thread attributes when running as normal user, disable them in that case
