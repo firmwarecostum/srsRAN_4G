@@ -20,6 +20,7 @@
  */
 
 #include "srsran/mac/mac_sch_pdu_nr.h"
+#include <endian.h>
 
 namespace srsran {
 
