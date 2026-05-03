@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <endian.h>
 
 #include "srsran/common/standard_streams.h"
 #include "srsran/mac/pdu.h"
