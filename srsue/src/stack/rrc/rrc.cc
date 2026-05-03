@@ -40,6 +40,8 @@
 #include <math.h>
 #include <numeric>
 #include <string.h>
+#include <sys/types.h>
+#include <stdint.h>
 
 std::atomic<bool> simulate_rlf{false};
 
