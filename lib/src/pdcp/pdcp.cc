@@ -21,6 +21,7 @@
 
 #include "srsran/upper/pdcp.h"
 #include "srsran/upper/pdcp_entity_nr.h"
+#include <stdint.h>
 
 namespace srsran {
 
