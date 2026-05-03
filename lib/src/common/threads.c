@@ -21,6 +21,7 @@
 
 #include <errno.h>
 #include <pthread.h>
+#include <sched.h> // Needed for cpu_set_t and CPU_SET macros
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -142,7 +143,7 @@ bool threads_new_rt_cpu(pthread_t* thread, void* (*start_routine)(void*), void* 
       CPU_SET((size_t)cpu, &cpuset);
     }
 
-    if (pthread_attr_setaffinity_np(&attr, sizeof(cpu_set_t), &cpuset)) {
+    if (pthread_attr_setaffinity_np(thread, sizeof(cpu_set_t), &cpuset)) {
       perror("pthread_attr_setaffinity_np");
     }
   }
