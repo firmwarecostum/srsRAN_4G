@@ -141,10 +141,11 @@ bool threads_new_rt_cpu(pthread_t* thread, void* (*start_routine)(void*), void* 
       CPU_ZERO(&cpuset);
       CPU_SET((size_t)cpu, &cpuset);
     }
-
+#ifdef __GLIBC__
     if (pthread_attr_setaffinity_np(&attr, sizeof(cpu_set_t), &cpuset)) {
       perror("pthread_attr_setaffinity_np");
     }
+#endif
   }
 
 // TSAN seems to have issues with thread attributes when running as normal user, disable them in that case
