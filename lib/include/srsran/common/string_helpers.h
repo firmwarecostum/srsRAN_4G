@@ -29,6 +29,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <sys/types.h>
+#include <stdint.h>
 
 namespace srsran {
 
