@@ -33,6 +33,8 @@
 #include "srsran/interfaces/epc_interfaces.h"
 #include "srsran/srslog/srslog.h"
 #include <cstddef>
+#include <sys/types.h>
+#include <stdint.h>
 
 #include <map>
 
